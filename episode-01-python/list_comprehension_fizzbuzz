@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+r = range(1, 101)
+fizzbuzz = {
+  k: v
+  for d in
+  [
+    [(i, i) for i in r],
+    [(i, "Fizz") for i in r if i % 5 == 0],
+    [(i, "Buzz") for i in r if i % 3 == 0],
+    [(i, "FizzBuzz") for i in r if i % 15 == 0]
+  ]
+  for (k,v) in d
+}
+
+for value in fizzbuzz.values():
+  print(value)

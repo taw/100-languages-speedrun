@@ -1,0 +1,4 @@
+#!/usr/bin/env python3
+
+print(len("😉"))
+print([1,2] == [1,2])
