@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      counter-reset: fizzbuzz-counter;
+    }
+    span {
+      counter-increment: fizzbuzz-counter;
+    }
+    span::after {
+      content: ", ";
+    }
+    span:last-child::after {
+      content: ".";
+    }
+    span::before {
+      content: counter(fizzbuzz-counter);
+    }
+    span:nth-child(3n)::before {
+      content: "Fizz";
+    }
+    span:nth-child(5n)::before {
+      content: "Buzz";
+    }
+    span:nth-child(15n)::before {
+      content: "FizzBuzz";
+    }
+  </style>
+</head>
+<body>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</body>
+</html>

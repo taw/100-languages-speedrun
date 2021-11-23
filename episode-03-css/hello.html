@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --who: "World";
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-size: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    body::after {
+      content: "Hello, " var(--who);
+    }
+  </style>
+</head>
+<body>
+</body>
+</html>

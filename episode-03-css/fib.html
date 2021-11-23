@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --x: 0px;
+      --y: 1px;
+    }
+    body {
+      margin: 8px;
+      font-size: 48px;
+      min-height: 100vh;
+    }
+    span {
+      display: block;
+    }
+    span.a {
+      --z: calc(var(--x) + var(--y));
+    }
+    span.b {
+      --x: var(--y);
+    }
+    span.c {
+      --y: var(--z);
+    }
+    span.c::before {
+      display: block;
+      background-color: #480;
+      height: 5px;
+      width: var(--x);
+      margin: 2px;
+      content: "";
+    }
+  </style>
+</head>
+<body>
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+  <span class="a"><span class="b"><span class="c">
+</body>
+</html>
