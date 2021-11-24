@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+if ARGV.size != 1 or ARGV[0] !~ /\.kt\z/
+  STDERR.puts "Usage: #{$0} <file.kt>"
+  exit 1
+end
+
+kt = ARGV[0]
+jar = kt.sub(/\.kt\z/, ".jar")
+
+system "kotlinc #{kt} -include-runtime -d #{jar} && java -jar #{jar}"
