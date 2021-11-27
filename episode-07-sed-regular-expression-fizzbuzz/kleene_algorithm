@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+states = [0, 1, 2]
+transitions = {
+  [0,0] => "(0?)",
+  [1,1] => "(0?)",
+  [2,2] => "(0?)",
+  [0,1] => "1",
+  [1,2] => "1",
+  [2,0] => "1",
+  [0,2] => "2",
+  [2,1] => "2",
+  [1,0] => "2",
+}
+
+states.each do |k|
+  new_transitions = {}
+  states.each do |i|
+    states.each do |j|
+      a = transitions[[i,k]]
+      b = transitions[[k,k]]
+      c = transitions[[k,j]]
+      d = transitions[[i,j]]
+      new_transitions[[i,j]] = "(#{a}#{b}*#{c}|#{d})"
+    end
+  end
+  transitions = new_transitions
+end
+
+pp transitions
