@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require "lex"
+
+class MyLexer < Lex::Lexer
+  tokens(
+    :NUMBER,
+    :PLUS,
+    :MINUS,
+    :TIMES,
+    :DIVIDE,
+    :LPAREN,
+    :RPAREN,
+    :EQUALS,
+    :ID
+  )
+
+  # Regular expression rules for simple tokens
+  rule(:PLUS,   /\+/)
+  rule(:MINUS,  /\-/)
+  rule(:TIMES,  /\*/)
+  rule(:DIVIDE, /\//)
+  rule(:LPAREN, /\(/)
+  rule(:RPAREN, /\)/)
+  rule(:ID,     /[_\$a-zA-Z][_\$0-9a-zA-Z]*/)
+
+  # A regular expression rules with actions
+  rule(:NUMBER, /[0-9]+/) do |lexer, token|
+    token.value = token.value.to_i
+    token
+  end
+
+  # Define a rule so we can track line numbers
+  rule(:newline, /\n+/) do |lexer, token|
+    lexer.advance_line(token.value.length)
+  end
+
+  # A string containing ignored characters (spaces and tabs)
+  ignore " \t"
+
+  error do |lexer, token|
+    puts "Illegal character: #{token}"
+  end
+end
+
+# build the lexer
+my_lexer = MyLexer.new(debug: true)
+
+input = "x = 5 + 44 * (s - t)"
+output = my_lexer.lex(input)
+
+pp output.next
+pp output.next
+pp output.next
+pp output.next
+pp output.next
