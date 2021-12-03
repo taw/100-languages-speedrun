@@ -1,0 +1,4 @@
+# Program for converting miles to km
+read miles
+set kms = miles * 1.60934
+print kms
