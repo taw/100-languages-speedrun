@@ -1,0 +1,5 @@
+task :default => "hello.html"
+
+file "hello.html" => "hello.md" do
+  sh "pandoc hello.md -o hello.html"
+end

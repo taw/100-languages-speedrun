@@ -1,0 +1,5 @@
+desc "FizzBuzz"
+task "fizzbuzz", [:n] do |t, args|
+  n = args.n.to_i
+  puts ["Fizz"[(n % 3)*4..], "Buzz"[(n % 5)*4..], " #{n}"].join.split.first
+end

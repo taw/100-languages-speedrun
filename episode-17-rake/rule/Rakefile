@@ -1,0 +1,5 @@
+task :default => "hello.html"
+
+rule ".html" => ".md" do |t|
+  sh "pandoc", t.source, "-o", t.name
+end

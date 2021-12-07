@@ -1,0 +1,18 @@
+require "pathname"
+
+(1..2).each do |i|
+  file "#{i}.txt" do |t|
+    Pathname(t.name).write "1"
+  end
+end
+
+(3..100).each do |i|
+  file "#{i}.txt" => ["#{i-1}.txt", "#{i-2}.txt"] do |t|
+    Pathname(t.name).write t.sources.map{|n| Pathname(n).read.to_i}.sum
+  end
+end
+
+desc "Cleanup Fibonacci files"
+task "clean" do
+  sh "trash *.txt"
+end

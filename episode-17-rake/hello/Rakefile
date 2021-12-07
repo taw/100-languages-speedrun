@@ -1,0 +1,6 @@
+task :default => :hello
+
+desc "Say helo"
+task :hello do
+  puts "Hello, World!"
+end
