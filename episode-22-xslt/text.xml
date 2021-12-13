@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<persons>
+  <person>
+    <name>Alice</name>
+    <surname>Cooper</surname>
+  </person>
+  <person>
+    <name>Bob</name>
+    <surname>Smith</surname>
+  </person>
+</persons>

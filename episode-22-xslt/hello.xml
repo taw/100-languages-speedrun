@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<persons>
+  <person>
+    <name>Alice</name>
+  </person>
+  <person>
+    <name>Bob</name>
+  </person>
+</persons>
