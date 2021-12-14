@@ -1,0 +1,16 @@
+%!PS
+/Monaco 32 selectfont
+
+0 1 10 {
+                % STACK CONTENTS:
+                % i
+  dup 30 mul    % i 30i
+  600 exch sub  % i 600-30i
+  300           % i 600-30i 300
+  exch          % i 300 600-30i
+  moveto        % i
+  20 string cvs % "i" (as string of max size 20 chars)
+  show
+} for
+
+showpage

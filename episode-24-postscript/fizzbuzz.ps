@@ -1,0 +1,34 @@
+%!PS
+/Helvetica 14 selectfont
+
+/fizzbuzz {
+  dup 15 mod 0 eq {
+    pop (FizzBuzz)
+  } {
+    dup 5 mod 0 eq {
+      pop (Buzz)
+    } {
+      dup 3 mod 0 eq {
+        pop (Fizz)
+      } {
+        20 string cvs
+      } ifelse
+    } ifelse
+  } ifelse
+} def
+
+/fizzbuzzpage {
+  /n exch def
+  1 1 50 {
+    dup 14 mul
+    780 exch sub
+    50
+    exch
+    moveto
+    n add fizzbuzz show
+  } for
+  showpage
+} def
+
+0 fizzbuzzpage
+50 fizzbuzzpage

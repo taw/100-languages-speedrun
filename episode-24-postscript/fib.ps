@@ -1,0 +1,28 @@
+%!PS
+/Helvetica 20 selectfont
+
+/fib {
+  dup 2 le {
+    pop
+    1
+  } {
+    dup 1 sub fib
+    exch
+    2 sub fib
+    add
+  } ifelse
+} def
+
+1 1 30 {
+  dup 20 mul
+  700 exch sub
+  50
+  exch
+  moveto
+  (fib\() show
+  dup 20 string cvs show
+  (\) = ) show
+  fib 20 string cvs show
+} for
+
+showpage

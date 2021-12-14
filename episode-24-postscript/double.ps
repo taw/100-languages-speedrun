@@ -1,0 +1,20 @@
+%!PS
+/Helvetica 32 selectfont
+
+/double {
+  dup add
+} def
+
+1 1 10 {
+  dup 30 mul
+  600 exch sub
+  100
+  exch
+  moveto
+  (double\() show
+  dup 20 string cvs show
+  (\) = ) show
+  double 20 string cvs show
+} for
+
+showpage
