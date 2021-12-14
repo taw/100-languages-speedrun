@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require "z3"
+
+solver = Z3::Solver.new
+solver.assert 2 + Z3.Int("X") == 4
+
+if solver.satisfiable?
+  model = solver.model
+  puts "X = #{model[Z3.Int("X")]}"
+else
+  puts "There are no solutions"
+end

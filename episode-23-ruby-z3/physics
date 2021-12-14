@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+# A race car accelerates uniformly from 18.5 m/s to 46.1 m/s in 2.47 seconds.
+# Determine the acceleration of the car and the distance traveled.
+
+require "z3"
+
+solver = Z3::Solver.new
+
+a = Z3.Real("a")
+v0 = Z3.Real("v0")
+v1 = Z3.Real("v1")
+t = Z3.Real("t")
+d = Z3.Real("d")
+
+solver.assert a == (v1 - v0) / t
+solver.assert v0 == 18.5
+solver.assert v1 == 46.1
+solver.assert t == 2.47
+solver.assert d == (v0 + v1) / 2 * t
+
+if solver.satisfiable?
+  model = solver.model
+  model.each do |var, value|
+    puts "#{var}=#{value}"
+  end
+else
+  puts "There are no solutions"
+end

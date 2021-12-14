@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require "z3"
+
+solver = Z3::Solver.new
+v = Z3.Bitvec("v", 64)
+
+naive_is_power_of_two = Z3.Or(*(0..63).map{|i| v == 2**i})
+tricky_is_power_of_two = (v != 0) & ((v & (v - 1)) == 0)
+
+theorem = (tricky_is_power_of_two == naive_is_power_of_two)
+
+solver.assert !theorem
+
+if solver.satisfiable?
+  counterexample = solver.model
+  puts "Counterexample exists:"
+  counterexample.each do |n,v|
+    puts "* #{n} = #{v}"
+  end
+else
+  puts "There are no counterexamples, it always holds."
+end

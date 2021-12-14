@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require "z3"
+
+solver = Z3::Solver.new
+
+fib = (0..100).map{|i| Z3.Int("fib(#{i})")}
+
+solver.assert fib[42] == 267914296
+solver.assert fib[69] == 117669030460994
+
+(2..100).each do |i|
+  solver.assert fib[i] == fib[i-1] + fib[i-2]
+end
+
+if solver.satisfiable?
+  model = solver.model
+  fib.each do |var|
+    puts "#{var}=#{model[var]}"
+  end
+else
+  puts "There are no solutions"
+end

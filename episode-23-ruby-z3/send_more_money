@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require "z3"
+
+solver = Z3::Solver.new
+letters = %w[s e n d m o r e m o n e y].uniq.to_h{|letter| [letter, Z3.Int(letter)]}
+
+letters.each_value do |var|
+  solver.assert var >= 0
+  solver.assert var <= 9
+end
+
+solver.assert letters["m"] != 0
+solver.assert letters["s"] != 0
+
+solver.assert Z3.Distinct(*letters.values)
+
+send = 1000 * letters["s"] + 100 * letters["e"] + 10 * letters["n"] + letters["d"]
+more = 1000 * letters["m"] + 100 * letters["o"] + 10 * letters["r"] + letters["e"]
+money = 10000 * letters["m"] + 1000 * letters["o"] + 100 * letters["n"] + 10 * letters["e"] + letters["y"]
+
+solver.assert send + more == money
+
+if solver.satisfiable?
+  model = solver.model
+  model.each do |var, value|
+    puts "#{var}=#{value}"
+  end
+  puts "#{model[send]} + #{model[more]} = #{model[money]}"
+else
+  puts "There are no solutions"
+end

@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+
+require "z3"
+
+sudoku = %w[
+  _6_5_9_4_
+  92_____76
+  __1___9__
+  7__6_3__9
+  _________
+  3__4_1__7
+  __6___7__
+  24_____65
+  _9_1_8_3_
+]
+
+solver = Z3::Solver.new
+
+vars = (0..8).map{|y|
+  (0..8).map{|x|
+    Z3.Int("cell[#{x},#{y}]")
+  }
+}
+
+# All cells are 1-9
+vars.flatten.each do |var|
+  solver.assert var >= 1
+  solver.assert var <= 9
+end
+
+# Cells match sudoku grid if it already has numbers
+9.times do |y|
+  9.times do |x|
+    if sudoku[y][x] =~ /\d/
+      solver.assert vars[y][x] == sudoku[y][x].to_i
+    end
+  end
+end
+
+# Each row has distinct numbers
+vars.each do |row|
+  solver.assert Z3.Distinct(*row)
+end
+
+# Each column has distinct numbers
+vars.transpose.each do |col|
+  solver.assert Z3.Distinct(*col)
+end
+
+# Each box has distinct numbers
+[0, 3, 6].each do |i|
+  [0, 3, 6].each do |j|
+    cells = vars[i, 3].flat_map{|row| row[j, 3]}
+    solver.assert Z3.Distinct(*cells)
+  end
+end
+
+if solver.satisfiable?
+  model = solver.model
+  9.times do |y|
+    9.times do |x|
+      print model[vars[y][x]]
+    end
+    print "\n"
+  end
+end
