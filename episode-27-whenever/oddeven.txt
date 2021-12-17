@@ -1,0 +1,3 @@
+1 2#4,3#4;
+2 defer (1 || N(2) < N(3)) print((11 - N(2) * 2) + " is odd");
+3 defer (1 || N(2) == N(3)) print((12 - N(3) * 2) + " is even");
