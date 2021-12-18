@@ -1,0 +1,19 @@
+\documentclass{minimal}
+\setlength{\parindent}{0pt}
+\usepackage{ifthen}
+
+% \numberloop{A}{B} prints all numbers from A to B
+\newcommand\numberloop[2]{
+  \newcounter{i}
+  \setcounter{i}{#1}
+  \whiledo{\not{\value{i}>#2}}
+    {
+      \thei
+      \ifthenelse{\equal{#2}{\thei}}{.}{,}
+      \stepcounter{i}
+    }
+}
+
+\begin{document}
+\numberloop{10}{100}
+\end{document}

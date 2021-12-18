@@ -1,0 +1,40 @@
+\documentclass{minimal}
+\setlength{\parindent}{0pt}
+\usepackage{ifthen}
+\usepackage{intcalc}
+
+% \fib{N} returns the Nth Fibonacci number
+\newcounter{j}
+\newcounter{fiba}
+\newcounter{fibb}
+\newcounter{fibc}
+\newcommand\fib[1]{
+  \setcounter{j}{1}
+  \setcounter{fiba}{1}
+  \setcounter{fibb}{1}
+  \whiledo{\value{j} < #1}
+    {
+      \setcounter{fibc}{\intcalcAdd{\thefiba}{\thefibb}}
+      \setcounter{fiba}{\thefibb}
+      \setcounter{fibb}{\thefibc}
+      \stepcounter{j}
+    }
+  \thefiba
+}
+
+% \fibloop{A}{B} prints all Fibonacci numbers from A to B
+\newcommand\fibloop[2]{
+  \newcounter{i}
+  \setcounter{i}{#1}
+  \whiledo{\not{\value{i}>#2}}
+    {
+      \fib{\thei}
+      \linebreak
+      \stepcounter{i}
+    }
+}
+
+\begin{document}
+\raggedright
+\fibloop{1}{20}
+\end{document}

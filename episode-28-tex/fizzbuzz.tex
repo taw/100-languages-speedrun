@@ -1,0 +1,32 @@
+\documentclass{minimal}
+\setlength{\parindent}{0pt}
+\usepackage{ifthen}
+\usepackage{intcalc}
+\usepackage{multicol}
+
+% \fizzbuzz{N} prints Fizz, Buzz, FizzBuzz, or N, according to the usual rules
+\newcommand\fizzbuzz[1]{
+  \ifthenelse{\equal{\intcalcMod{#1}{15}}{0}}{FizzBuzz}{
+    \ifthenelse{\equal{\intcalcMod{#1}{5}}{0}}{Buzz}{
+      \ifthenelse{\equal{\intcalcMod{#1}{3}}{0}}{Fizz}{#1}
+    }
+  }
+}
+
+% \fizzbuzzloop{A}{B} prints all FizzBuzz entries from A to B
+\newcommand\fizzbuzzloop[2]{
+  \newcounter{i}
+  \setcounter{i}{#1}
+  \whiledo{\not{\value{i}>#2}}
+    {
+      \fizzbuzz{\thei}
+      \linebreak
+      \stepcounter{i}
+    }
+}
+
+\begin{document}
+\begin{multicols}{4}
+\fizzbuzzloop{1}{100}
+\end{multicols}
+\end{document}
