@@ -1,0 +1,11 @@
+task "default" => "build"
+
+desc "Build everything"
+task "build" do
+  sh "iverilog -o mux4bit_tb.vvp mux4bit.v mux4bit_tb.v"
+  sh "iverilog -o mux8bit_tb.vvp mux8bit.v mux8bit_tb.v"
+  sh "iverilog -o oddeven.vvp oddeven.v oddeven_tb.v"
+  sh "iverilog -o mod3_tp.vvp mod3*.v"
+  sh "iverilog -o mod5_tp.vvp mod5*.v"
+  sh "iverilog -o fizzbuzz_tp.vvp fizzbuzz*.v mod[35]_[a0-9]*.v"
+end
