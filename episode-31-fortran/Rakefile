@@ -1,0 +1,12 @@
+task "default" => "build"
+
+desc "Build everything"
+task "build" do
+  # sh "gfortran -std=legacy -o hello hello.f"
+  # sh "gfortran -std=legacy -o hello2 hello2.f"
+  # sh "gfortran -std=legacy -o loop loop.f"
+  # sh "gfortran -std=legacy -o fizzbuzz fizzbuzz.f"
+  # sh "gfortran -std=legacy -o double double.f"
+  # sh "gfortran -std=legacy -o fib fib.f"
+  sh "gfortran -std=legacy -o fib2 fib2.f"
+end
