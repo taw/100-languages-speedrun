@@ -1,0 +1,42 @@
+to draw_b
+  fd 2.5 ; main stroke a bit
+  arc 2.5 180 ; bottom loop
+  fd 5 ; more main stroke
+  arc 2.5 180 ; top loop
+  fd 2.5 ; finish main stroke
+  pu rt 180 fd 10 ; go back
+  ; go to next character
+  lt 90 fd 7
+  ; reset pen state
+  pd lt 90
+end
+
+to draw_u
+  pu fw 3 pd fd 7 ; left stroke
+  pu rt 90 fd 6 ; move to right stroke
+  pd rt 90 fd 7 ; right stroke
+  pu rt 90 fd 3 ; move to center of arc
+  pd rt 180 arc 3 180 ; arc
+  ; go to next character
+  pu fd 8 rt 90 fd 3
+  ; reset pen state
+  pd rt 180
+end
+
+to draw_z
+  rt 90 fd 5; bottom line
+  pu rt 180 fd 5 ; return
+  pd rt 120 fd 11 ; diagonal stroke
+  lt 120 fd 5 ; top line
+  ; advance to next character
+  pu rt 180 fd 5 rt 120 fd 11 lt 120 fd 10
+  ; reset pen state
+  pd lt 90
+end
+
+to draw_buzz
+  draw_b draw_u draw_z draw_z
+end
+
+cs
+repeat 3 [draw_buzz]

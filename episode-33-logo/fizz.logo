@@ -1,0 +1,40 @@
+to draw_i
+  fd 10 ; main stroke
+  ; go to next character
+  pu
+  rt 90 fd 5
+  rt 90 fd 10
+  ; reset pen state
+  pd
+  rt 180
+end
+
+to draw_f
+  fd 10 ; main line
+  rt 90 fd 5 ; top stroke
+  pu rt 180 fd 5 lt 90 fd 5; move to next stroke
+  pd lt 90 fd 5; middle stroke
+  ; go to next character
+  pu fd 5 rt 90 fd 5
+  ; reset pen state
+  pd
+  rt 180
+end
+
+to draw_z
+  rt 90 fd 5; bottom line
+  pu rt 180 fd 5 ; return
+  pd rt 120 fd 11 ; diagonal stroke
+  lt 120 fd 5 ; top line
+  ; advance to next character
+  pu rt 180 fd 5 rt 120 fd 11 lt 120 fd 10
+  ; reset pen state
+  pd lt 90
+end
+
+to draw_fizz
+  draw_f draw_i draw_z draw_z
+end
+
+cs
+repeat 3 [draw_fizz]

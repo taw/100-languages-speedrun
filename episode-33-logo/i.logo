@@ -1,0 +1,16 @@
+to draw_i
+  ; draw line
+  forward 10
+  penup
+  ; go to next character
+  right 90
+  forward 5
+  right 90
+  forward 10
+  ; reset to facing up, pen down
+  pendown
+  right 180
+end
+
+cs
+repeat 3 [draw_i]

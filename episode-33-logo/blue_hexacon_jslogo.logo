@@ -1,0 +1,6 @@
+; Blue Hexagon - JSLogo
+cs
+setpencolor [80 80 100]
+setpensize 4
+repeat 6 [fd 60 rt 60]
+ht

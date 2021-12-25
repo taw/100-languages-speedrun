@@ -1,0 +1,6 @@
+; Blue Hexagon - Papert
+cs
+color [200 200 255]
+penwidth 4
+repeat 6 [fd 60 rt 60]
+ht
