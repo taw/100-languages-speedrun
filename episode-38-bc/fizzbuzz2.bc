@@ -1,0 +1,14 @@
+#!/usr/bin/bc -q
+
+i = 1
+while (i <= 100) {
+  t = i % 3
+  v = i % 5
+  if (t == 0) { "Fizz" }
+  if (v == 0) { "Buzz" }
+  if (t != 0 && v != 0) { print(i) }
+  "
+"
+  i = i + 1
+}
+quit

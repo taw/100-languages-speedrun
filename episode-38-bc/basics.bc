@@ -1,0 +1,4 @@
+#!/usr/bin/bc -q
+
+2^100
+quit

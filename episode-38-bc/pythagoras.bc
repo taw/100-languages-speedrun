@@ -1,0 +1,7 @@
+#!/usr/bin/bc -q
+
+scale = 60
+a = read()
+b = read()
+sqrt(a^2 + b^2)
+quit
