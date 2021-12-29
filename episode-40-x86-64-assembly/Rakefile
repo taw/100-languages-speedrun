@@ -1,0 +1,11 @@
+task "default" => "build"
+
+desc "Build everything"
+task "build" do
+  sh "nasm -f macho64 exit.asm && ld -static -o exit exit.o"
+  sh "nasm -f macho64 hello.asm && ld -static -o hello hello.o"
+  sh "nasm -f macho64 loop.asm && ld -static -o loop loop.o"
+  sh "nasm -f macho64 print_number.asm && ld -static -o print_number print_number.o"
+  sh "nasm -f macho64 print_loop.asm && ld -static -o print_loop print_loop.o"
+  sh "nasm -f macho64 fizzbuzz.asm && ld -static -o fizzbuzz fizzbuzz.o"
+end
