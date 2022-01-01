@@ -1,0 +1,27 @@
+| ?- [family2].
+| ?- ancestor1(X, charles2).
+
+X = philip4 ? ;
+
+X = mariana ? ;
+
+X = philip3 ? ;
+
+X = philip3 ? ;
+
+X = maria_anna ? ;
+
+no
+| ?- ancestor2(X, charles2).
+
+X = philip4 ? ;
+
+X = mariana ? ;
+
+X = philip3 ? ;
+
+X = maria_anna ? ;
+
+X = philip3 ? ;
+
+Fatal Error: local stack overflow (size: 16384 Kb, reached: 16384 Kb, environment variable used: LOCALSZ)

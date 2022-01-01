@@ -1,0 +1,28 @@
+[family].
+
+| ?- father(philip4, X).
+
+X = charles2
+
+yes
+| ?- father(X, philip4).
+
+X = philip3 ? ;
+
+no
+| ?- mother(X, philip4).
+
+no
+| ?- grandfather(X, Y), greatgrandfather(X, Y).
+
+X = philip3
+Y = charles2 ? ;
+
+no
+| ?- father(philip3, X).
+
+X = maria_anna ? ;
+
+X = philip4
+
+yes

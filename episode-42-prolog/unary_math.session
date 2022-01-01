@@ -1,0 +1,48 @@
+| ?- [unary_math].
+| ?- add(s(s(z)), s(s(s(z))), N).
+
+N = s(s(s(s(s(z))))) ?
+
+yes
+| ?- add(s(s(z)), N, s(s(s(z)))).
+
+N = s(z) ?
+
+yes
+| ?- sum(S, [s(z), s(s(z))]).
+
+S = s(s(s(z))) ?
+
+yes
+| ?- sum(s(s(s(s(s(s(z)))))), [A, B]).
+
+A = s(s(s(s(s(s(z))))))
+B = z ? ;
+
+A = s(s(s(s(s(z)))))
+B = s(z) ? ;
+
+A = s(s(s(s(z))))
+B = s(s(z)) ? ;
+
+A = s(s(s(z)))
+B = s(s(s(z))) ? ;
+
+A = s(s(z))
+B = s(s(s(s(z)))) ? ;
+
+A = s(z)
+B = s(s(s(s(s(z))))) ? ;
+
+A = z
+B = s(s(s(s(s(s(z)))))) ? ;
+
+no
+| ?- add(N, s(z), N).
+
+cannot display cyclic term for N ?
+
+yes
+| ?- add(s(z), N, N).
+
+Fatal Error: global stack overflow (size: 32768 Kb, reached: 32765 Kb, environment variable used: GLOBALSZ)

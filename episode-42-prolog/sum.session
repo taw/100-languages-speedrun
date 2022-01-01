@@ -1,0 +1,10 @@
+| ?- [sum].
+| ?- sum(X, [1,2,3]).
+
+X = 6 ?
+
+yes
+| ?- sum(6, [A, B, C]).
+uncaught exception: error(instantiation_error,(is)/2)
+| ?- sum(6, [A]).
+uncaught exception: error(instantiation_error,(is)/2)
