@@ -1,0 +1,10 @@
+roll::=~1
+roll::=~2
+roll::=~3
+roll::=~4
+roll::=~5
+roll::=~6
+,::=~,
+$::=~
+::=
+roll,roll,roll$
