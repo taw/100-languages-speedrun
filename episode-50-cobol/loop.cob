@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. LOOP.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+           01 N PIC 9(2).
+
+       PROCEDURE DIVISION.
+           PERFORM VARYING N FROM 1 BY 1 UNTIL N > 20
+             DISPLAY N
+           END-PERFORM.
+           STOP RUN.

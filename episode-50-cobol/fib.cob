@@ -1,0 +1,54 @@
+      *    MAIN PROGRAM
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FIBLOOP.
+
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       REPOSITORY.
+           FUNCTION FIB.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+           01 N PIC 9(3).
+           01 M PIC Z(8)9.
+
+       PROCEDURE DIVISION.
+           PERFORM VARYING N FROM 1 BY 1 UNTIL N > 20
+             COMPUTE M = FIB(N)
+             DISPLAY 'FIB(' WITH NO ADVANCING
+             DISPLAY N WITH NO ADVANCING
+             DISPLAY ')=' WITH NO ADVANCING
+             DISPLAY M
+           END-PERFORM.
+           STOP RUN.
+
+       END PROGRAM FIBLOOP.
+
+      *    FUNCTION FIB(N)
+       IDENTIFICATION DIVISION.
+       FUNCTION-ID. FIB.
+
+       DATA DIVISION.
+       LOCAL-STORAGE SECTION.
+       01 A PIC 9(9).
+       01 B PIC 9(9).
+       01 N1 PIC 9(3).
+       01 N2 PIC 9(3).
+
+       LINKAGE SECTION.
+       01 N PIC 9(3).
+       01 RESULT PIC 9(9) COMP BASED.
+
+       PROCEDURE DIVISION USING N RETURNING RESULT.
+           IF N IS LESS OR EQUAL TO 2 THEN
+               MOVE 1 TO RESULT
+           ELSE
+              SUBTRACT 1 FROM N GIVING N1
+              SUBTRACT 2 FROM N GIVING N2
+              COMPUTE A = FIB(N1)
+              COMPUTE B = FIB(N2)
+              ADD A TO B GIVING RESULT
+           END-IF.
+           GOBACK.
+
+       END FUNCTION FIB.
