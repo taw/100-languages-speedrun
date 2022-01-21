@@ -1,0 +1,4 @@
+select favorite_language, count(*) as cnt
+from people
+group by favorite_language
+order by count(*) desc;

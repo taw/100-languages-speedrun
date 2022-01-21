@@ -1,0 +1,6 @@
+create table `clicks.csv` (name, counter);
+insert into clicks (name, counter) values ('upvote', 0);
+insert into clicks (name, counter) values ('downvote', 0);
+update clicks set counter = counter + 420 where name = 'upvote';
+update clicks set counter = counter + 69 where name = 'downvote';
+select * from clicks;

@@ -1,0 +1,1 @@
+select first_name || ' likes ' || favorite_language as fun_fact from people;

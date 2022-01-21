@@ -1,0 +1,4 @@
+select favorite_language, listagg(first_name || ' ' || last_name, ',') as fans
+from people
+group by favorite_language
+order by favorite_language;
