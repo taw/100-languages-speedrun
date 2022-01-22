@@ -1,0 +1,12 @@
+^roll::=^ROLL
+^,::=^COMMA
+^$::=~
+ROLL::=~1
+ROLL::=~2
+ROLL::=~3
+ROLL::=~4
+ROLL::=~5
+ROLL::=~6
+COMMA::=~,
+::=
+^roll,roll,roll$

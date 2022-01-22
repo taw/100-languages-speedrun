@@ -1,0 +1,19 @@
+# rules for adding one to a digit ::=
+# only 9 is special ::=
+[0-8]🧲::=✅[1-9]
+9🧲::=🧲0
+# if extra carry arrived, add leading 1 ::=
+^🧲::=^✅1
+# we're done, so just let ✅ pass through ::=
+[0-9]✅::=✅[0-9]
+# print the result ::=
+# first activate each letter with 📄, but leave a copy behind ::=
+^✅::=^🖨
+🖨[0-9]::=[0-9]🖨📄[0-9]
+# now print the activated letter ::=
+📄[0-9]::=~[0-9]
+# once printing finished, switch to increment mode 🧲
+🖨$::=🏁🧲$
+🏁::=~
+::=
+^🖨1$

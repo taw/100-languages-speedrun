@@ -1,0 +1,7 @@
+^roll::=^ROLL
+^,::=^COMMA
+^$::=~
+ROLL::=~[1-6]
+COMMA::=~,
+::=
+^roll,roll,roll$
