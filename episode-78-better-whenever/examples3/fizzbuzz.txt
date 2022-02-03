@@ -1,0 +1,15 @@
+// start
+start 10,11
+// variables
+2 2
+3 3
+4 4
+// printing
+5 defer((N(6) + N(7) + N(8) + N(9)) != 3) 6#-N(6),7#-N(7),8#-N(8),9#-N(9)
+6 defer(N(3) == 0 || N(4) == 0) print(N(2))
+7 defer(3 || N(4) == 0) print("Fizz")
+8 defer(N(3) == 0 || 4) print("Buzz")
+9 defer(3 || 4) print("FizzBuzz")
+// loop logic
+10 defer(5 || N(2) >= 100) 2,3,-3#((N(3)/3)*3),4,-4#((N(4)/5)*5),5,6,7,8,9,10
+11 defer(5 || N(2) < 100) -2#N(2),-3#N(3),-4#N(4),-10#N(10)

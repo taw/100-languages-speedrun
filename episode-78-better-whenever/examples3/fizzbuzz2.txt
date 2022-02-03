@@ -1,0 +1,15 @@
+// start
+start loop,loopend
+// variables
+a a
+t t
+f f
+// printing
+prn defer((N(pn) + N(pf) + N(pb) + N(pfb)) != 3) -pn#N(pn),-pf#N(pf),-pb#N(pb),-pfb#N(pfb)
+pn defer(!t || !f) print(N(a))
+pf defer(t || !f) print("Fizz")
+pb defer(!t || f) print("Buzz")
+pfb defer(t || f) print("FizzBuzz")
+// loop logic
+loop defer(prn || N(a) >= 100) a,t,-t#((N(t)/3)*3),f,-f#((N(f)/5)*5),prn,pn,pf,pb,pfb,loop
+loopend defer(prn || N(a) < 100) -a#N(a),-t#N(t),-f#N(f),-loop#N(loop)
