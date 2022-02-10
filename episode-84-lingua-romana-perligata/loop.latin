@@ -1,0 +1,10 @@
+#!/usr/bin/env perl
+
+use Lingua::Romana::Perligata;
+
+meis listis unum tum decem conscribementa da.
+
+per quisque in listis fac
+  sic
+    hoc comementum tum novumversum egresso scribe
+  cis.

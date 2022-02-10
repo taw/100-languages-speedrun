@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+
+use Lingua::Romana::Perligata;
+
+meo nomo vestibulo perlegementum da.
+
+nomo morde.
+
+dictum sic Salve, cis tum lacunam tum nomum tum novumversum egresso scribe.

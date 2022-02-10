@@ -1,0 +1,7 @@
+#!/usr/bin/env perl
+
+use Lingua::Romana::Perligata;
+
+adnota Salve, Mundus! in Lingua Romana Perligana
+
+dictum sic Salve, Mundus! cis tum novumversum egresso scribe.
