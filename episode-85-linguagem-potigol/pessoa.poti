@@ -1,0 +1,11 @@
+tipo Pessoa
+  nome : Texto
+  sobrenome : Texto
+  idade : Inteiro
+fim
+
+maria = Pessoa("Maria", "Santos", 27)
+josé = Pessoa("José", "Rodrigues", 22)
+
+escreva maria
+escreva "{josé.nome} {josé.sobrenome} tem {josé.idade} anos"

@@ -1,0 +1,11 @@
+fib(número : Inteiro) : Inteiro
+  se número <= 2
+    1
+  senão
+    fib(número - 1) + fib(número - 2)
+  fim
+fim
+
+para número de 1 até 30 faça
+  escreva "fib({número})={fib(número)}"
+fim

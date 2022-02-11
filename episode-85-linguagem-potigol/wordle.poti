@@ -1,0 +1,27 @@
+verifique(acho : Texto, palavra : Texto)
+  var blocos = ""
+  para número de 1 até 5 faça
+    se acho[número] == palavra[número]
+      blocos := blocos + "🟩"
+    senãose palavra.contem(acho[número])
+      blocos := blocos + "🟨"
+    senão
+      blocos := blocos + "⬛"
+    fim
+  fim
+  escreva blocos
+fim
+
+palavras = Arquivo.leia("palavras.txt")
+palavra = aleatorio(palavras)
+
+var acho = ""
+
+enquanto acho <> palavra faça
+  acho := leia_texto
+  se acho.tamanho == 5
+    verifique(acho, palavra)
+  senão
+    escreva "palavra deve ter 5 caracteres"
+  fim
+fim

@@ -1,0 +1,11 @@
+para número de 1 até 100 faça
+  se número mod 15 == 0
+    escreva "FizzBuzz"
+  senãose número mod 5 == 0
+    escreva "Buzz"
+  senãose número mod 3 == 0
+    escreva "Fizz"
+  senão
+    escreva número
+  fim
+fim
