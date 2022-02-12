@@ -1,0 +1,10 @@
+#!/usr/bin/env sidef
+
+func fib(n) is cached {
+  return 1 if (n <= 2)
+  fib(n - 1) + fib(n - 2)
+}
+
+(1..100).each {|n|
+  say "fib(#{n}) = #{fib(n)}"
+}

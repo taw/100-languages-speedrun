@@ -1,0 +1,6 @@
+#!/usr/bin/env sidef
+
+say(2+3*4+5)
+say(2 + 3 * 4 + 5)
+say(2 + 3*4 + 5)
+say(2+3 * 4+5)

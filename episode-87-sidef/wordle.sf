@@ -1,0 +1,24 @@
+#!/usr/bin/env sidef
+
+var words = File.new("wordle-answers-alphabetical.txt").read.split
+var word = words.rand
+var guess = ""
+
+while (guess != word) {
+  print "Guess: "
+  guess = STDIN.readline
+  if (guess.size != 5) {
+    say "Only 5 letter words allowed"
+    next
+  }
+  {|i|
+    if (word[i] == guess[i]) {
+      print "🟩"
+    } elsif (word.include(guess[i])) {
+      print "🟨"
+    } else {
+      print "🟥"
+    }
+  } * 5
+  print "\n"
+}

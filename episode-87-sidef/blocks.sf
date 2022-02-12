@@ -1,0 +1,30 @@
+#!/usr/bin/env sidef
+
+func twice(f) {
+  say "Running it twice:"
+  f()
+  f()
+}
+
+var hi = { say "Hi!" }
+twice(hi)
+twice({ say "Hello!" })
+twice { say "This does not work!" }
+
+say ""
+say "Iteration:"
+{ |i| say "Block got: #{i}" }.each(10..12)
+{ |i| say "Block got: #{i}" } << 13..14
+for 15..16 { |i| say "Block got: #{i}" }
+(17..18).each { |i| say "Block got: #{i}" }
+{ |i| say "Block got: #{i+19}" } * 2
+2.times { |i| say "Block got: #{i+21}" }
+
+say ""
+say "Single argument:"
+60 |> { |i| say "Block got: #{i}" }
+60 |> :inc |> { |i| say "Block got: #{i}" }
+60 |> {|i| i + 2} |> { |i| say "Block got: #{i}" }
+60 |> {_+3} |> { |i| say "Block got: #{i}" }
+60 |> (:add, 4) |> { |i| say "Block got: #{i}" }
+{ |i| say "Block got: #{i}" }(69)
