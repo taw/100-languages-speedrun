@@ -1,0 +1,9 @@
+#!/usr/bin/env brat
+
+fib = {n|
+  true? (n <= 2)
+    { 1 }
+    { fib(n - 1) + fib(n - 2) }
+}
+
+1.to 20 {n| p "fib(#{n}) = #{fib(n)}" }

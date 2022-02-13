@@ -1,0 +1,5 @@
+#!/usr/bin/env brat
+
+p "Hello".length
+p "Żółw".length
+p "💩".length

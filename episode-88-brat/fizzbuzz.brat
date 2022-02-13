@@ -1,0 +1,15 @@
+#!/usr/bin/env brat
+
+1.to 100 { n|
+  true? (n % 15 == 0)
+    { p "FizzBuzz" }
+    {
+      true? (n % 5 == 0)
+        { p "Buzz" }
+        {
+          true? (n % 3 == 0)
+            { p "Fizz" }
+            { p n }
+        }
+    }
+}

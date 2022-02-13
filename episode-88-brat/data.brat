@@ -1,0 +1,9 @@
+#!/usr/bin/env brat
+
+a = [1 2 3 4 5]
+h = ["name" : "Alice", "surname" : "Smith"]
+
+p a
+p h
+p [1 2] == [1 2]
+p ["name": "Alice"] == ["name": "Alice"]

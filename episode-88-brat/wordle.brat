@@ -1,0 +1,30 @@
+#!/usr/bin/env brat
+
+include :file
+
+array.prototype.random = { my[object.random(length)] }
+
+words = file.read("wordle-answers-alphabetical.txt").split("\n")
+word = words.random
+guess = ""
+
+while { guess != word } {
+  print "Guess word: "
+  guess = g
+  true? { guess.length == 5 }
+    {
+      0.to 4 { n|
+        true? { guess[n] == word[n] }
+          { print "🟩" }
+          {
+            true? { word.include?(guess[n]) }
+              { print "🟨" }
+              { print "🟥" }
+          }
+      }
+      print "\n"
+    }
+    {
+      p "Guess must be 5 characters"
+    }
+}

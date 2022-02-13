@@ -1,0 +1,10 @@
+#!/usr/bin/env brat
+
+person = object.new
+person.to_s = { "#{name} #{surname}" }
+
+alice = person.new
+alice.name = "Alice"
+alice.surname = "Smith"
+
+p alice

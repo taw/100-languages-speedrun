@@ -1,0 +1,6 @@
+#!/usr/bin/env brat
+
+a = [1 2 3 4 5]
+p a.map { x| x * 2 }
+p a.select { x| x % 2 == 1}
+p a.reduce { x, y| x + y}

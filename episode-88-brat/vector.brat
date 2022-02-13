@@ -1,0 +1,21 @@
+#!/usr/bin/env brat
+
+vector = object.new
+vector.x = 0
+vector.y = 0
+vector.to_s = { "<#{x},#{y}>" }
+vector.init = { xx, yy |
+  my.x = xx
+  my.y = yy
+}
+vector.+ = { other |
+  vector.new(x + other.x, y + other.y)
+}
+
+a = vector.new(20, 60)
+b = vector.new(400, 9)
+c = a + b
+
+p a
+p b
+p c
