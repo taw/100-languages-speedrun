@@ -1,0 +1,6 @@
+#!/usr/bin/env yue -e
+
+macro maybe = (code) -> "#{code} if math.random() < 0.5"
+
+for n = 1,10
+  $maybe print n

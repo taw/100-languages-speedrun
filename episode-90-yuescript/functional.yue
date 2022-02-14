@@ -1,0 +1,9 @@
+#!/usr/bin/env yue -e
+
+inspect = require "inspect"
+
+nums = [i for i = 1, 10]
+evens = [i for i in *nums when i % 2 == 0]
+
+nums |> inspect |> print
+evens |> inspect |> print

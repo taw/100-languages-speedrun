@@ -1,0 +1,10 @@
+#!/usr/bin/env yue -e
+
+utf8 = require "lua-utf8"
+
+"Hello" |> utf8.len |> print
+"Żółw" |> utf8.len |> print
+"💩" |> utf8.len |> print
+
+"Żółw" |> utf8.upper |> print
+"Żółw" |> utf8.lower |> print

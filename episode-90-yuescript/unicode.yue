@@ -1,0 +1,8 @@
+#!/usr/bin/env yue -e
+
+"Hello" |> utf8.len |> print
+"Żółw" |> utf8.len |> print
+"💩" |> utf8.len |> print
+
+"Żółw" |> string.upper |> print
+"Żółw" |> string.lower |> print

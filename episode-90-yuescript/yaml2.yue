@@ -1,0 +1,25 @@
+#!/usr/bin/env yue -e
+
+inspect = require "inspect"
+
+-- data from Factorio wiki
+fireArmor =
+  name: "fire-armor"
+  icons:
+    * icon: "fireArmor.png"
+      tint: {r: 1, g: 0, b: 0, a: 0.3}
+  resistances:
+    * type: "physical",
+      decrease: 6,
+      percent: 10
+    * type: "explosion",
+      decrease: 10,
+      percent: 30
+    * type: "acid",
+      decrease: 5,
+      percent: 30
+    * type: "fire",
+      decrease: 0,
+      percent: 100
+
+fireArmor |> inspect |> print

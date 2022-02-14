@@ -1,0 +1,19 @@
+#!/usr/bin/env yue -e
+
+inspect = require "inspect"
+
+person =
+  name: "Patricia"
+  age: 42
+  occupation: "programmer"
+  hobbies:
+    * "programming"
+    * "biking"
+    * "swimming"
+  friends:
+    * "John"
+    * "Mary"
+    * "Bob"
+    * "Sally"
+
+person |> inspect |> print

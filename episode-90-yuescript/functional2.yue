@@ -1,0 +1,22 @@
+#!/usr/bin/env yue -e
+
+inspect = require "inspect"
+
+range = (a, b) -> [x for x = a, b]
+map = (list, f) -> [f(x) for x in *list]
+filter = (list, f) -> [x for x in *list when f(x)]
+reduce = (list, initial, f) ->
+  value = initial
+  for x in *list
+    value = f(value, x)
+  value
+
+range(1, 10)
+  |> filter (x) -> x % 2 == 0
+  |> map (x) -> x * 10
+  |> inspect
+  |> print
+
+range(1,10)
+  |> reduce 0, (a, b) -> a + b
+  |> print
