@@ -1,0 +1,11 @@
+#!/usr/bin/env arturo
+
+a: 1
+b: 1
+c: new 1
+
+inc 'a
+
+print a
+print b
+print c

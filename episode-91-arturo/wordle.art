@@ -1,0 +1,20 @@
+#!/usr/bin/env arturo
+
+words: split.words read "wordle-answers-alphabetical.txt"
+word: words\[random 0 ((size words) - 1)]
+
+guess: ""
+while [guess <> word] [
+  guess: input "Guess: "
+  if? 5 <> size guess
+    [print "Guess must be 5 letters long."]
+  else [
+    loop 0..4 'n [
+      case []
+        when? [guess\[n] = word\[n]] [prints "🟩"]
+        when? [contains? word guess\[n]] [prints "🟨"]
+        else [prints "🟥"]
+    ]
+    prints "\n"
+  ]
+]

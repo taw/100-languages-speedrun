@@ -1,0 +1,11 @@
+#!/usr/bin/env arturo
+
+loop 1..100 'n [
+  print [
+    if? 0 = n % 3 [
+      if? 0 = n % 5 ["FizzBuzz"] else ["Fizz"]
+    ] else [
+      if? 0 = n % 5 ["Buzz"] else [n]]
+    ]
+  ]
+]

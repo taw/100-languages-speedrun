@@ -1,0 +1,6 @@
+#!/usr/bin/env arturo
+
+print upper "Żółw"
+print lower "Żółw"
+print size "Żółw"
+print size "🍰"

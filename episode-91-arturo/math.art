@@ -1,0 +1,3 @@
+#!/usr/bin/env arturo
+
+print 2 * 3 + 4
