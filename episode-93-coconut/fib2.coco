@@ -1,0 +1,10 @@
+#!/usr/bin/env coconut -qr
+
+from functools import cache
+
+def fib(1) = 1
+addpattern def fib(2) = 1
+@cache
+addpattern def fib(n) = fib(n-1) + fib(n-2)
+
+range(1, 101) |> map$(n -> f"fib({n}) = {fib(n)}") |> "\n".join |> print

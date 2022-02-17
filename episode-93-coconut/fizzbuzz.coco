@@ -1,0 +1,14 @@
+#!/usr/bin/env coconut -qr
+
+nums = count(1)
+
+@recursive_iterator
+def fizz() = (| "", "", "Fizz" |) :: fizz()
+
+@recursive_iterator
+def buzz() = (| "", "", "", "", "Buzz" |) :: buzz()
+
+fizzbuzz = zip(fizz(), buzz()) |> map$("".join)
+fizzbuzznum = zip(fizzbuzz, nums) |> map$(x -> x[0] or x[1])
+
+fizzbuzznum$[:100] |> map$print |> consume
