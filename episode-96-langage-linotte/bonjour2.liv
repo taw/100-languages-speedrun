@@ -1,0 +1,4 @@
+nom est un texte
+affiche "Quel est votre nom?"
+demande nom
+affiche "Bonjour " + nom + "! Bienvenue à Paris!"

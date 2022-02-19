@@ -1,0 +1,24 @@
+i est un nombre
+fizz est un nombre valant 0
+buzz est un nombre valant 0
+
+pour i de 1 à 100
+  incrémente fizz
+  incrémente buzz
+  si (fizz == 3) et (buzz == 5)
+    affiche "FizzBuzz"
+    fizz prend 0
+    buzz prend 0
+  ferme
+  sinon si buzz == 5
+    affiche "Buzz"
+    buzz prend 0
+  ferme
+  sinon si fizz == 3
+    affiche "Fizz"
+    fizz prend 0
+  ferme
+  sinon
+    affiche i
+  ferme
+ferme

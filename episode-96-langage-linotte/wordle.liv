@@ -1,0 +1,34 @@
+mots est un casier de textes depuis "french-wordle.txt"
+index est un nombre
+index prend mots.taille()
+mélange index
+mot est un texte valant mots{index}
+devine est un texte
+
+tant que devine != mot
+  questionne devine sur "Devine un mot:"
+  si devine.taille() != 5
+    affiche "Le mot doit être 5 lettres"
+  ferme
+  sinon
+    affiche wordle(mot, devine)
+  ferme
+ferme
+
+wordle : mot, devine
+  i est un nombre
+  j est un nombre
+  résultat est un texte
+  pour i de 0 à 4
+    j prend mot.position(0, devine{i})
+    si (mot{i}) == (devine{i})
+      résultat += "🟩"
+    ferme
+    sinon si j != -1
+      résultat += "🟨"
+    ferme
+    sinon
+      résultat += "🟥"
+    ferme
+  ferme
+  retourne résultat
