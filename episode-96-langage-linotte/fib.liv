@@ -4,5 +4,5 @@ pour i de 1 à 20
 ferme
 
 fib : n
-	si n <= 2 retourne 1
-	sinon retourne fib(n-1) + fib(n-2)
+  si n <= 2 retourne 1
+  sinon retourne fib(n-1) + fib(n-2)
