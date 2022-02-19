@@ -1,0 +1,8 @@
+[
+  $ "Hello, " echo$  ( print "Hello, " )
+  echo$              ( print the name )
+  $ "!" echo$ cr     ( print "!\n" )
+] is hello
+
+$ "What is your name? " input
+hello

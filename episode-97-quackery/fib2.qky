@@ -1,0 +1,22 @@
+[
+  dup
+  3 < iff [
+    drop 1
+  ] else [
+    dup
+    1 - ]this[ do
+    swap
+    2 - ]this[ do
+    +
+  ]
+] is fib
+
+[
+  $ "fib(" echo$
+  dup echo
+  $ ")=" echo$
+  fib echo
+  cr
+] is display-fib
+
+20 times [ 20 i - display-fib ]

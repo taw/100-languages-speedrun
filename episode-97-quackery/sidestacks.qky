@@ -1,0 +1,30 @@
+[ stack ] is name
+[ stack ] is surname
+
+[
+  surname put
+  name put
+] is push-person
+[
+  name release
+  surname release
+] is pop-person
+[
+  $ "Hello, " echo$
+  name share echo$
+  $ " " echo$
+  surname share echo$
+  $ "!" echo$
+  cr
+] is display-person
+
+
+$ "Harry" $ "Potter" push-person
+$ "Hermione" $ "Granger" push-person
+$ "Ron" $ "Weasley" push-person
+
+display-person
+pop-person
+display-person
+pop-person
+display-person

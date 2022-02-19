@@ -1,0 +1,18 @@
+[
+  dup 15 mod 0 =
+  iff [
+    drop say "FizzBuzz"
+  ] else [
+    dup 5 mod 0 =
+    iff [
+      drop say "Buzz"
+    ] else [
+      dup 3 mod 0 =
+      iff [ drop say "Fizz" ]
+      else [ echo ]
+    ]
+  ]
+  cr
+] is fizzbuzz
+
+100 times [ 100 i - fizzbuzz ]
