@@ -1,0 +1,19 @@
+# how many lines before N
+-> (1, 0, 0)
+
+# process file character by character
+(0, 2, 0, pos1, 10), (1, pos2, cnt) -> (2, pos1+1, cnt+1, -(pos1-pos2)**2, 0, 0)
+(0, 2, 0, pos1, c), (1, pos2, cnt) -> (2, pos1+1, cnt, -(pos1-pos2)**2, c-1, ((c-10)**2)-1)
+(0, 2, 0, pos1, 0), (1, pos2, cnt) -> (3, cnt, -(pos1-pos2)**2)
+
+# continue loop
+(2, pos, cnt, _, _, _) -> (1, pos, cnt)
+
+# print result
+(3, cnt, _) -> (4, cnt, 100)
+# always print "\n"
+-> (0, 1, 101, 10)
+
+(4, cnt, outpos) -> (0, 1, outpos, 48 + (cnt % 10))
+(4, cnt, outpos) -> (4, (cnt/10), outpos-1, (cnt/10)-1)
+(4, cnt, outpos, _) -> (4, cnt, outpos)

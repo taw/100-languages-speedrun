@@ -1,0 +1,10 @@
+# Request first character
+-> (0, 0, 0)
+
+# Stop if EOF
+(0, 0, pos, char) -> (1, pos, char, char-1)
+
+# On character received, print it and request another
+# (no flushing, just let it flush on exit)
+(1, pos, char, _) -> (0, 1, pos, char)
+(1, pos, char, _) -> (0, 0, pos+1)

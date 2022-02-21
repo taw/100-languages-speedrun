@@ -1,0 +1,43 @@
+# 10.i.b - at position i, there's digit b
+(0, 2, 0, i, b) -> (10, i, b-48, -(48-b)*(57-b))
+(10, i, b, _) -> (10, i, b)
+
+# 11.i - at position i, there's a non-digit, non-EOF
+(0, 2, 0, i, b) -> (11, i, (47-b)*(58-b), b-1)
+(11, i, _, _) -> (11, i)
+
+# 12.i - at position i, there's EOF
+(0, 2, 0, i, 0) -> (12, i)
+
+# 13.i.v - partial numbers coming into i
+# if number ended at i, it would be v
+# so "x123yz" would result in [0, 0, 1, 12, 123, 0]
+-> (13, 0, 0)
+(11, i) -> (13, i+1, 0)
+(13, i, v), (10, j, b) -> (13, i+1, 10*v+b, -(i-j)**2)
+(13, i, v, _) -> (13, i, v)
+
+# 14.i.v is v if number ends just before i, or 0 otherwise
+(13, i, v), (11, j) -> (14, i, v, -(i-j)**2)
+(13, i, v), (12, j) -> (14, i, v, -(i-j)**2)
+(10, i, _) -> (14, i, 0)
+(14, i, v, _) -> (14, i, v)
+
+# 15.i.v is sum of all numbers before i
+-> (15, 0, 0)
+(15, i, v), (14, j, u) -> (15, i+1, u+v, -(i-j)**2)
+(15, i, v, _) -> (15, i, v)
+
+# 16.v is the final sum
+# (there's extra +1 as sums shifted)
+(15, i, v), (12, j) -> (16, v, -(i-j-1)**2)
+(16, v, _) -> (16, v)
+
+# send to printer, also add "\n"
+(16, v) -> (20, v, 100)
+-> (0, 1, 101, 10)
+
+# (20, num, pos) prints number with last digit at pos
+(20, num, pos) -> (0, 1, pos, 48+(num % 10))
+(20, num, pos) -> (21, (num/10), pos-1, (num/10)-1)
+(21, num, pos, _) -> (20, num, pos)

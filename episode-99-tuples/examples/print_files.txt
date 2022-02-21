@@ -1,0 +1,15 @@
+# 2.i.size are file sizes
+(0, 2, i, size, 0) -> (2, i, size)
+
+# 3.i.size is total size of all files preceeding i
+# check flag is == j
+-> (3, 0, 0)
+(3, i, presize), (2, j, size) -> (3, i+1, presize+size, -(i-j)**2)
+(3, i, size, _) -> (3, i, size)
+
+# output contents of each file at the right offset
+# (we can safely add 0s to the output at duplicate position
+# they're ignored by the output algorithm)
+# check flag id1 == id2
+(0, 2, id1, i, b), (3, id2, size) -> (4, size+i, b, -(id1-id2)**2)
+(4, pos, b, _) -> (0, 1, pos, b)

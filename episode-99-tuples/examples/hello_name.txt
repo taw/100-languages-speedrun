@@ -1,0 +1,25 @@
+# Request first character
+-> (0, 0, 0)
+
+# Print "Hello, "
+-> (0, 1, 0, 72)
+-> (0, 1, 1, 101)
+-> (0, 1, 2, 108)
+-> (0, 1, 3, 108)
+-> (0, 1, 4, 111)
+-> (0, 1, 5, 44)
+-> (0, 1, 6, 32)
+
+# Stop if newline or EOF
+(0, 0, i, b) -> (1, i, b, b-1, ((b-10)**2)-1)
+(0, 0, i, 0) -> (2, i)
+(0, 0, i, 10) -> (2, i)
+
+# On character received, print it and request another
+# (no flushing, just let it flush on exit)
+(1, pos, char, _, _) -> (0, 1, 10+pos, char)
+(1, pos, char, _, _) -> (0, 0, pos+1)
+
+# Print final parts
+(2, i) -> (0, 1, 10+i, 33)
+(2, i) -> (0, 1, 11+i, 10)

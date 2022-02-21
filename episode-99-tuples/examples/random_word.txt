@@ -1,0 +1,22 @@
+# we know every line is 5 characters + newline, that makes it a lot easier
+# as we can just start at 6*Nth character
+
+# 10.x is count of words in the dictionary
+(0, 2, 0, i, 0) -> (10, i/6)
+
+# roll random index
+# 11.x is character position of random word (6*random number)
+(10, count) -> (0, 4, 0, 0, count-1)
+(0, 4, 0, _, _, index) -> (11, index*6)
+
+# 12.i.b is the random word, i-ith letter
+(11, pos1), (0, 2, 0, pos2, b) -> (12, 0, b, -(pos1-pos2)**2)
+(11, pos1), (0, 2, 0, pos2, b) -> (12, 1, b, -(pos1-pos2+1)**2)
+(11, pos1), (0, 2, 0, pos2, b) -> (12, 2, b, -(pos1-pos2+2)**2)
+(11, pos1), (0, 2, 0, pos2, b) -> (12, 3, b, -(pos1-pos2+3)**2)
+(11, pos1), (0, 2, 0, pos2, b) -> (12, 4, b, -(pos1-pos2+4)**2)
+(12, i, b, _) -> (12, i, b)
+
+# print the random word
+(12, i, b) -> (0, 1, i, b)
+-> (0, 1, 5, 10)

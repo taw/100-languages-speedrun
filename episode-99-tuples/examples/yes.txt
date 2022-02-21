@@ -1,0 +1,10 @@
+# Initial state
+-> (1, 0)
+
+# Print "y\n" and request callback
+(1, i) -> (0, 1, i*2, 121)
+(1, i) -> (0, 1, i*2+1, 10)
+(1, i) -> (0, 3, i*2+1)
+
+# If printed, get next state
+(0, 3, ii, 0) -> (1, (ii/2) + 1)
