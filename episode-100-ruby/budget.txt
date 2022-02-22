@@ -1,0 +1,5 @@
+Food $200
+Data $150
+Rent $800
+Candles $3600
+Utility $150
