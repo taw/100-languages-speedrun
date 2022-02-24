@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+xd = [
+  "<[07]>",
+  "<[18]>",
+  "<[29]>",
+  "3",
+  "4",
+  "5",
+  "6",
+]
+
+
+ds = 7.times.map{ [] }
+
+(0..6).each do |a|
+  (0..5).each do |s|
+    r = (a * (10 ** s)) % 7
+    u = s == 0 ? "" : ".**#{s} "
+    ds[r] << "| #{xd[a]} <?before #{u}[.**6]* $ >"
+  end
+end
+
+(1..6).each do |r|
+  puts "my regex d7r#{r} {"
+  puts "  ["
+  ds[r].each do |du|
+      puts "  #{du}"
+  end
+  puts "  ]"
+  puts "};"
+end

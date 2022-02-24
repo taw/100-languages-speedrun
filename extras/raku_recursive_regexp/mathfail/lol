@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+d = [
+  "<[07]>",
+  "<[18]>",
+  "<[29]>",
+  "3",
+  "4",
+  "5",
+  "6",
+]
+(0..6).each do |a|
+  puts "my regex m7r#{a} {"
+  puts "  ["
+  puts "  | #{d[a]}"
+  (0..6).each do |b|
+    c = -(b * 10) % 7
+    puts "  | #{d[b]} &m7r#{c}"
+  end
+  puts "  ]"
+  puts "};"
+end
